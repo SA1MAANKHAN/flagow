@@ -1,0 +1,24 @@
+.page__initate {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page__loading {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  animation: ImgRoatate infinite 0.8s linear;
+  border-radius: 50%;
+}
+
+@keyframes ImgRoatate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

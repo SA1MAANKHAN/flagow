@@ -1,0 +1,53 @@
+colors {
+  color: #29b8fc;
+  color: #2c2a5f;
+  color: #039be6;
+  color: #28b6f6;
+  color: #d0d1e6;
+  color: #224450;
+  color: #a2dbd6;
+  color: #5b888c;
+
+  color: #194569;
+  color: #11698e;
+  color: #208aed;
+  color: #16c79a;
+  color: #5dfdcb;
+  color: #707070;
+  color: #44b692;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 400px) {
+  * {
+    font-size: 4vw;
+  }
+}
+
+.app {
+  height: 100vh;
+}
+
+link,
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1rem;
+}

@@ -1,0 +1,28 @@
+.level {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.level > h1 {
+  color: #5dfdcb;
+}
+@media (max-width: 400px) {
+  .level > h1 {
+    font-size: 10vw;
+  }
+}
+
+.levels {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 20px 0;
+}

@@ -1,0 +1,55 @@
+.roundWon {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roundWon__container {
+  height: 60vh;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 20px;
+
+  box-shadow: 5px 5px 20px rgb(24, 24, 24);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  background-color: #194569;
+}
+
+.roundWon__message {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.roundWon__trophy {
+  height: 15vh;
+  object-fit: contain;
+}
+
+.roundWon__icon {
+  color: #16c79a;
+}
+
+.roundWon__container > h1 {
+  margin: 15px;
+  text-align: center;
+}
+
+.roundWon__navigation {
+  align-self: flex-end;
+  display: flex;
+  width: 50%;
+  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+}

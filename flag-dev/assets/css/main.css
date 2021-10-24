@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.home {
+  height: 95vh;
+}
+
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home__child {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.img__flag {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.card-container {
+  height: 450px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: solid 5px transparent;
+  background-clip: padding-box;
+  margin: 1rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.card-container .card-flag-img {
+  border-radius: 10px 10px 0 0;
+  height: 180px;
+  width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-container .card-info {
+  padding: 10px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.card-container .card-info .other-info-1 {
+  margin-top: 1.5rem;
+}
+
+.card-container .card-info .info-country {
+  font-size: 2rem;
+  color: #1f1f1f;
+}
+
+.card-container .card-info .info-continent {
+  font-size: 1rem;
+  color: #1f1f1f;
+}
+
+.card-container .card-info .other-info {
+  color: #313131;
+  color: #1f1f1f;
+  margin: 0.8rem;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+  color: white;
+  height: 5vh;
+  width: 100%;
+}
+/*# sourceMappingURL=main.css.map */
