@@ -1,12 +1,4 @@
-colors {
-  color: #29b8fc;
-  color: #2c2a5f;
-  color: #039be6;
-  color: #28b6f6;
-  color: #d0d1e6;
-  color: #224450;
-  color: #a2dbd6;
-  color: #5b888c;
+.colors{
 
   color: #194569;
   color: #11698e;
@@ -25,11 +17,6 @@ colors {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (max-width: 400px) {
-  * {
-    font-size: 4vw;
-  }
-}
 
 .app {
   height: 100vh;
@@ -41,13 +28,13 @@ a {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: calc(3vh + 3vw);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: calc(2vh + 2vw);
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: calc(1vh + 1vw);
 }

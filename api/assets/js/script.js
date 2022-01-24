@@ -277,7 +277,7 @@ const renderCountry = function (data) {
 
 export const Countries = async function (countryCode) {
   const response = await fetch(
-    `https://restcountries.eu/rest/v2/alpha/${countryCode}`
+    `https://restcountries.com/v2/alpha/${countryCode}`
   );
 
   const data = await response.json();

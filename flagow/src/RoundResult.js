@@ -1,20 +1,21 @@
 import React from "react";
-import "./RoundWon.css";
+import "./RoundResult.css";
 import ReplayIcon from "@material-ui/icons/Replay";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { Link, useParams } from "react-router-dom";
+import Trophy from "./assets/Trophy.png"
 
-function RoundWon() {
+function RoundResult() {
   const { message } = useParams();
 
-  if (message.toLowerCase() == "won") {
+  if (message.toLowerCase() === "won") {
     return (
       <div className="roundWon">
         <div className="roundWon__container">
           <div className="roundWon__message">
             <img
               className="roundWon__trophy"
-              src="http://www.pngall.com/wp-content/uploads/5/Gold-Trophy-PNG.png"
+              src={Trophy}
               alt=""
             />
           </div>
@@ -32,7 +33,7 @@ function RoundWon() {
     );
   }
 
-  if (message.toLowerCase() == "lost") {
+  if (message.toLowerCase() === "lost") {
     return (
       <div className="roundWon">
         <div className="roundWon__container">
@@ -54,4 +55,4 @@ function RoundWon() {
   }
 }
 
-export default RoundWon;
+export default RoundResult;

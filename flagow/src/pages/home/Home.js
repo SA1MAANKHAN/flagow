@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "./Header";
+import Header from "../../components/header/Header";
+import Option from "../../components/option/Option";
 
 import "./Home.css";
-import Option from "./Option";
 
 function Home() {
   return (
@@ -19,11 +19,8 @@ function Home() {
         <Link className="link" to="/Level/Currency">
           <Option optionName="Currency" />
         </Link>
-        {/* <Link className="link" to="/More">
-          <Option optionName="More" />
-        </Link> */}
 
-        <a className="link" href="https://salmaan.netlify.app/">
+        <a className="link" href="https://itssalmaank.web.app/">
           <Option optionName="About" />
         </a>
       </div>

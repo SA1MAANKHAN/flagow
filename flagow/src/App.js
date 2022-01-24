@@ -1,19 +1,19 @@
 import "./App.css";
-import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Level from "./Level";
-import Quiz from "./Quiz";
-import Type from "./Type";
 
-import RoundWon from "./RoundWon";
+import Home from "./pages/home/Home";
+import Level from "./pages/level/Level";
+import Quiz from "./pages/quiz/Quiz";
+import Type from "./pages/type/Type";
+
+import RoundResult from "./RoundResult";
 
 function App() {
   return (
     <Router>
-      <div className="app">
         <Switch>
-          <Route path="/RoundWon/:message">
-            <RoundWon />
+          <Route path="/RoundResult/:message">
+            <RoundResult />
           </Route>
 
           <Route path="/Quiz/:level/:quizType">
@@ -30,7 +30,6 @@ function App() {
             <Home />
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }

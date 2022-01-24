@@ -1,16 +1,15 @@
 import React from "react";
-import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
-import Option from "./Option";
+import Navbar from "../../components/nav/Navbar";
+import Option from "../../components/option/Option";
 import "./Type.css";
 
 function Type() {
-  const typesOfQuiz = {
-    flag: ["flag from country", "country from flag"],
-    capital: ["country from capital", "capital from country"],
-    currency: ["currency from country", "country from currency"],
-  };
+  // const typesOfQuiz = {
+  //   flag: ["flag from country", "country from flag"],
+  //   capital: ["country from capital", "capital from country"],
+  //   currency: ["currency from country", "country from currency"],
+  // };
 
   return (
     <div className="type">

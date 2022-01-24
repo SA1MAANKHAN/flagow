@@ -8,7 +8,7 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar__container">
         <Link className="navbar__link" to="/">
-          <HomeIcon style={{ fontSize: 40, color: "#5dfdcb" }} />
+          <HomeIcon style={{ height: "calc(3vh + 3vw)", width: "calc(3vh + 3vw)", color: "#5dfdcb" }} />
         </Link>
         <a className="navbar__link" href="https://itssalmaank.web.app/">
           <h2>About</h2>

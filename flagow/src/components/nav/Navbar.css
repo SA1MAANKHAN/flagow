@@ -1,9 +1,10 @@
 .navbar {
-  height: 10vh;
+  height: 8vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: calc(.5vh + .5vw);
 }
 
 .navbar__container {

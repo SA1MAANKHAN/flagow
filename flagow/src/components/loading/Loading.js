@@ -1,5 +1,6 @@
 import React from "react";
 import "./Loading.css";
+import earth from  "../../assets/earth.png"
 
 function Loading() {
   return (
@@ -7,7 +8,7 @@ function Loading() {
       <div className="page__initate">
         <img
           className="page__loading"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELOnJuVRLB6J9XQCI1DLV8m-IVH-CTAcQtQ&usqp=CAU"
+          src={earth}
           alt=""
         />
       </div>

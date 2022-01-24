@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { getFourRandomCountries } from "./helper";
-import Loading from "./Loading";
-import Navbar from "./Navbar";
-import { numOfLives, numOfQuestion } from "./config";
-import "./Quiz.css";
-import { Howl } from "howler";
-
 import { Redirect, useParams } from "react-router";
+import { getFourRandomCountries } from "../../helper";
+import Loading from "../../components/loading/Loading";
+import Navbar from "../../components/nav/Navbar";
+import { numOfLives, numOfQuestion } from "../../config";
+import { Howl } from "howler";
+import "./Quiz.css";
+
+import wrong from "../../assets/wrong.mp3"
+import right from "../../assets/right.mp3"
+import win from "../../assets/win.mp3"
+import loose from "../../assets/loose.mp3"
+
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import Question from "./Question";
+import Question from "../../Question";
 
 function Quiz() {
   const [arrayCounrties, setCountries] = useState([]);
@@ -25,39 +30,39 @@ function Quiz() {
   // Setup the new Howl.
   const wrongPlay = new Howl({
     src: [
-      "https://freesound.org/people/tim.kahn/sounds/62298/download/62298__tim-kahn__tangel.wav",
+     wrong
     ],
     volume: 1,
   });
 
   const correctPlay = new Howl({
     src: [
-      "https://freesound.org/people/rhodesmas/sounds/320775/download/320775__rhodesmas__win-02.wav",
+     right
     ],
     volume: 1,
   });
 
   const loosePlay = new Howl({
     src: [
-      "https://freesound.org/people/TaranP/sounds/362205/download/362205__taranp__horn-fail-wahwah-2.wav",
+     loose
     ],
     volume: 1,
   });
 
   const winPlay = new Howl({
     src: [
-      "https://freesound.org/people/sergeeo/sounds/202577/download/202577__sergeeo__xylophone-for-cartoon-1.wav",
+     win
     ],
     volume: 1,
   });
 
-  // console.log(">>>>> ", quizType == "Flags", " Flags  <<<<<<<<");
-  // console.log(">>>>> ", quizType == "Capitals", " Capitals  <<<<<<<<");
-
-  // console.log(">>>>> ", quizType == "Currency", " Currency  <<<<<<<<");
   const startGame = function () {
+    
     const options = getFourRandomCountries(level);
     setCorrectIndex(options.correctOption);
+    
+    // clearing before calling again
+    setCountries([]);
     options.optionsArray.forEach((country) => {
       fetchCountries(country);
     });
@@ -65,11 +70,10 @@ function Quiz() {
 
   const fetchCountries = async function (countryCode) {
     const response = await fetch(
-      `https://restcountries.eu/rest/v2/alpha/${countryCode}`
+      `https://restcountries.com/v2/alpha/${countryCode}`
     );
 
     const data = await response.json();
-
     setCountries((arrayCounrties) => [...arrayCounrties, data]);
   };
 
@@ -77,15 +81,10 @@ function Quiz() {
     startGame();
   }, []);
 
-  console.log("array   >>>", arrayCounrties);
-  // console.log("arraylength   >>>", arrayCounrties.length);
-  // console.log("correct >>>", correctIndex);
-
   const gameLostNow = function () {
     loosePlay.play();
     console.log("GameOver BUDDy");
     setGameLost(true);
-    //
   };
 
   const gameWonNow = function () {
@@ -98,7 +97,7 @@ function Quiz() {
     // Play the sound.
     correctPlay.play();
 
-    if (currentQuesNumber == 5) {
+    if (currentQuesNumber === "5") {
       gameWonNow();
       return;
     }
@@ -110,7 +109,7 @@ function Quiz() {
 
   const wrongAnswer = function () {
     wrongPlay.play();
-    if (lives == 1) {
+    if (lives === 1) {
       gameLostNow();
       return;
     }
@@ -121,7 +120,7 @@ function Quiz() {
   const onClickAnsCheck = function (e) {
     e.preventDefault();
 
-    if (e.target.id.split(" ")[1] == correctIndex) {
+    if (e.target.id.split(" ")[1] === `${correctIndex}`) {
       console.log("correct");
       // ans is correct
       correctAnswer();
@@ -143,7 +142,7 @@ function Quiz() {
   if (gameWon) {
     return (
       <div>
-        <Redirect to="/RoundWon/Won" />
+        <Redirect to="/RoundResult/Won" />
       </div>
     );
   }
@@ -151,17 +150,17 @@ function Quiz() {
   if (gameLost) {
     return (
       <div>
-        <Redirect to={`/RoundWon/Lost`} />
+        <Redirect to="/RoundResult/Lost" />
       </div>
     );
   }
 
-  if (quizType == "Flags") {
+  if (quizType === "Flags") {
     return (
+      <>
+      <Navbar />
       <div className="quiz">
-        <Navbar />
-
-        <div className="quiz__timer"></div>
+       
         <div className="ques__info">
           <div className="quiz__lives">
             {Array(lives)
@@ -187,28 +186,29 @@ function Quiz() {
 
         <div className="quiz__options">
           {arrayCounrties.map((country, i) => (
-            <div
-              onClick={onClickAnsCheck}
+      
+              <img
+                onClick={onClickAnsCheck}
               className="quiz__option"
               key={`flag${i}`}
-            >
-              <img
                 id={`option ${i}`}
-                className="quiz__flagImg"
+               
                 src={country.flag}
                 alt=""
               />
-            </div>
+         
           ))}
         </div>
       </div>
+      </>
     );
   }
 
-  if (quizType == "Capitals") {
+  if (quizType === "Capitals") {
     return (
-      <div className="quiz">
+      <>
         <Navbar />
+      <div className="quiz">
 
         <div className="quiz__timer"></div>
         <div className="ques__info">
@@ -217,10 +217,10 @@ function Quiz() {
               .fill()
               .map((_, i) => (
                 <FavoriteIcon
-                  key={`heart${i}`}
-                  style={{ fontSize: 35, color: "#23ecaf" }}
+                key={`heart${i}`}
+                style={{ fontSize: 35, color: "#23ecaf" }}
                 />
-              ))}
+                ))}
           </div>
 
           <div className="quiz__progress__info">
@@ -232,32 +232,31 @@ function Quiz() {
           arrayCounrties={arrayCounrties}
           correctIndex={correctIndex}
           quizType={quizType}
-        />
+          />
 
         <div className="quiz__options">
           {arrayCounrties.map((country, i) => (
-            <div
-              onClick={onClickAnsCheck}
+          <img
+                onClick={onClickAnsCheck}
               className="quiz__option"
               key={`flag${i}`}
-            >
-              <img
                 id={`option ${i}`}
-                className="quiz__flagImg"
+               
                 src={country.flag}
                 alt=""
               />
-            </div>
           ))}
         </div>
       </div>
+  </>
     );
   }
 
-  if (quizType == "Currency") {
+  if (quizType === "Currency") {
     return (
-      <div className="quiz">
+      <>
         <Navbar />
+      <div className="quiz">
 
         <div className="quiz__timer"></div>
         <div className="ques__info">
@@ -266,10 +265,10 @@ function Quiz() {
               .fill()
               .map((_, i) => (
                 <FavoriteIcon
-                  key={`heart${i}`}
-                  style={{ fontSize: 40, color: "#23ecaf" }}
+                key={`heart${i}`}
+                style={{ fontSize: 40, color: "#23ecaf" }}
                 />
-              ))}
+                ))}
           </div>
 
           <div className="quiz__progress__info">
@@ -281,25 +280,23 @@ function Quiz() {
           arrayCounrties={arrayCounrties}
           correctIndex={correctIndex}
           quizType={quizType}
-        />
+          />
 
         <div className="quiz__options">
           {arrayCounrties.map((country, i) => (
-            <div
-              onClick={onClickAnsCheck}
+           <img
+                onClick={onClickAnsCheck}
               className="quiz__option"
               key={`flag${i}`}
-            >
-              <img
                 id={`option ${i}`}
-                className="quiz__flagImg"
+               
                 src={country.flag}
                 alt=""
               />
-            </div>
           ))}
         </div>
       </div>
+          </>
     );
   }
 

@@ -1,15 +1,18 @@
 import React from "react";
-import Option from "./Option";
-import "./Level.css";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "./Navbar";
+import "./Level.css";
+import Option from "../../components/option/Option";
+import Navbar from "../../components/nav/Navbar";
 
 function Level() {
   const { quizType } = useParams();
 
   return (
+
+    <>
+     <Navbar />
     <div className="level">
-      <Navbar />
+     
       <h1>Select Your Level</h1>
       <div className="levels">
         <Link className="link" to={`/Quiz/level1/${quizType}`}>
@@ -32,6 +35,7 @@ function Level() {
         </Link>
       </div>
     </div>
+    </>
   );
 }
 
