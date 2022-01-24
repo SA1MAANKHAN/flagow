@@ -9,7 +9,16 @@ import Type from "./pages/type/Type";
 import RoundResult from "./RoundResult";
 
 function App() {
+
+  if(window.innerWidth >= 1000) return (
+<div className="app">
+    <h1>This is a mobile app!</h1>
+    <h3>Desktop version will be out soon!</h3>
+</div>
+  )
+
   return (
+    
     <Router>
         <Switch>
           <Route path="/RoundResult/:message">

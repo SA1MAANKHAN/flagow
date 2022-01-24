@@ -38,8 +38,8 @@ function RoundResult() {
       <div className="roundWon">
         <div className="roundWon__container">
           <div className="roundWon__message">
-            <h1>You Lost,</h1>
-            <h2>Better Luck next time</h2>
+            <h1>You Lost :(</h1>
+            <h2>Better Luck next time!</h2>
           </div>
           <div className="roundWon__navigation">
             <Link className="roundWon__icon" to="/Quiz">

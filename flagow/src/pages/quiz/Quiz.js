@@ -97,7 +97,7 @@ function Quiz() {
     // Play the sound.
     correctPlay.play();
 
-    if (currentQuesNumber === "5") {
+    if (currentQuesNumber >= 5) {
       gameWonNow();
       return;
     }
